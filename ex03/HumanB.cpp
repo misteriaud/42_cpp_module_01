@@ -1,9 +1,8 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB(const std::string& name)
+: _name(name)
 {
-	this->name = name;
-	this->weapon = NULL;
 }
 
 HumanB::~HumanB()
@@ -12,10 +11,10 @@ HumanB::~HumanB()
 
 void	HumanB::attack(void)
 {
-	std::cout << this->name << " attacks with their " << this->Weapon.getType() << std::endl;
+	std::cout << this->_name << " attacks with their " << (this->_weapon ? this->_weapon->getType() : "unexisting weapon") << std::endl;
 }
 
-void	HumanB::setWeapon(const Weapon& weapon)
+void	HumanB::setWeapon(Weapon& weapon)
 {
-	this->weapon = &weapon;
+	this->_weapon = &weapon;
 }
