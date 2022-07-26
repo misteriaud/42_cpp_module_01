@@ -7,12 +7,13 @@ std::string replace(const std::string& src, const std::string& from, const std::
 	size_t			last_index = 0;
 	size_t			index;
 
-	while (index = src.find(from) != std::string::npos)
+	while (index = src.find(from, last_index), index != std::string::npos)
 	{
-		dest << src.substr(last_index, index);
-		dest << str2;
-		dest << tampon.substr(found + str1.length(), tampon.npos) << std::endl;
+		dest += src.substr(last_index, index - last_index);
+		dest += to;
+		last_index = index + from.length();
 	}
+	dest += src.substr(last_index, src.length() - last_index);
 	return (dest);
 }
 
@@ -20,10 +21,17 @@ int main(int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cerr << "Nombre d'arguments invalides\n";
+		std::cerr << "Invalid number of arguments\n";
+		return (1);
+	}
+	if (!av[2][0])
+	{
+		std::cerr << "The string pattern must be not empty" << std::endl;
 		return (1);
 	}
     std::ifstream		input_file(av[1]);
+	const std::string	output_file_name = std::string(av[1]) + std::string(".replace");
+    std::ofstream		output_file(output_file_name.c_str());
 	const std::string	str1 = av[2];
 	const std::string	str2 = av[3];
 	std::string			tampon;
@@ -34,9 +42,7 @@ int main(int ac, char **av)
 		return (1);
 	}
 	while (std::getline(input_file, tampon))
-	{
-		std::cout << replace(tampon, str1, str2) << std::endl;
-	}
+		output_file << replace(tampon, str1, str2) << std::endl;
 
 	return (0);
 }
