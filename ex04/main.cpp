@@ -26,7 +26,7 @@ int main(int ac, char **av)
 	}
 	if (!av[2][0])
 	{
-		std::cerr << "The string pattern must be not empty" << std::endl;
+		std::cerr << "The string pattern must not be empty" << std::endl;
 		return (1);
 	}
     std::ifstream		input_file(av[1]);
