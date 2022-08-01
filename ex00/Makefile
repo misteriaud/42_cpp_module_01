@@ -1,13 +1,13 @@
 NAME = ex00
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = $(addprefix src/, main.cpp Zombie.cpp newZombie.cpp randomChump.cpp)
 OBJS = ${SRCS:.cpp=.o}
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-HDRS = .
+HDRS = inc
 CC = c++
 
 all: ${NAME} $(HDRS) Makefile
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} ${HDRS}
 	$(CC) $(FLAGS) $(OBJS) -o $@
 
 %.o: %.cpp $(HDRS)

@@ -6,7 +6,7 @@
 /*   By: mriaud <mriaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:24:44 by mriaud            #+#    #+#             */
-/*   Updated: 2022/07/20 11:17:44 by mriaud           ###   ########.fr       */
+/*   Updated: 2022/08/01 16:01:38 by mriaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ public:
 	void announce(void);
 
 private:
-
 	std::string	_name;
 };
 
