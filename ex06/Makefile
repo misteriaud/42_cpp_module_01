@@ -1,8 +1,8 @@
 NAME = harlFilter
-SRCS = main.cpp Harl.cpp
+SRCS = $(addprefix src/, main.cpp Harl.cpp)
 OBJS = ${SRCS:.cpp=.o}
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-HDRS = ..
+HDRS = inc
 CC = c++
 
 all: ${NAME} $(HDRS) Makefile

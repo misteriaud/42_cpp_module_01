@@ -1,16 +1,16 @@
 NAME = ex05
-SRCS = main.cpp Harl.cpp
+SRCS = $(addprefix src/, main.cpp Harl.cpp)
 OBJS = ${SRCS:.cpp=.o}
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-HDRS = ..
+HDRS = inc
 CC = c++
 
-all: ${NAME} $(HDRS) Makefile
+all: ${NAME} ${HDRS} Makefile
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} ${HDRS}
 	$(CC) $(FLAGS) $(OBJS) -o $@
 
-%.o: %.cpp $(HDRS)
+%.o: %.cpp ${HDRS}
 	${CC} ${FLAGS} -I$(HDRS) -c $< -o ${<:.cpp=.o}
 
 clean:

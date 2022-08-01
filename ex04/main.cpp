@@ -30,8 +30,6 @@ int main(int ac, char **av)
 		return (1);
 	}
     std::ifstream		input_file(av[1]);
-	const std::string	output_file_name = std::string(av[1]) + std::string(".replace");
-    std::ofstream		output_file(output_file_name.c_str());
 	const std::string	str1 = av[2];
 	const std::string	str2 = av[3];
 	std::string			tampon;
@@ -39,6 +37,13 @@ int main(int ac, char **av)
 	if (!input_file.is_open())
 	{
 		std::cerr << "Could not open the file " << av[1] << std::endl;
+		return (1);
+	}
+	const std::string	output_file_name = std::string(av[1]) + std::string(".replace");
+    std::ofstream		output_file(output_file_name.c_str());
+	if (!output_file.is_open())
+	{
+		std::cerr << "Could not create the output file " << av[1] << ".replace" << std::endl;
 		return (1);
 	}
 	while (std::getline(input_file, tampon))

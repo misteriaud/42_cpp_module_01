@@ -2,16 +2,15 @@ NAME = ex04
 SRCS = main.cpp
 OBJS = ${SRCS:.cpp=.o}
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-HDRS = ..
 CC = c++
 
-all: ${NAME} $(HDRS) Makefile
+all: ${NAME} Makefile
 
 ${NAME}: ${OBJS}
 	$(CC) $(FLAGS) $(OBJS) -o $@
 
-%.o: %.cpp $(HDRS)
-	${CC} ${FLAGS} -I$(HDRS) -c $< -o ${<:.cpp=.o}
+%.o: %.cpp
+	${CC} ${FLAGS} -c $< -o ${<:.cpp=.o}
 
 clean:
 	${RM} ${OBJS}
