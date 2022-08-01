@@ -2,7 +2,7 @@ NAME = ex02
 SRCS = main.cpp
 OBJS = ${SRCS:.cpp=.o}
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-HDRS = ..
+HDRS = .
 CC = c++
 
 all: ${NAME} $(HDRS) Makefile

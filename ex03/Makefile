@@ -1,8 +1,8 @@
 NAME = ex03
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = $(addprefix src/, main.cpp Weapon.cpp HumanA.cpp HumanB.cpp)
 OBJS = ${SRCS:.cpp=.o}
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-HDRS = ..
+HDRS = inc
 CC = c++
 
 all: ${NAME} $(HDRS) Makefile
