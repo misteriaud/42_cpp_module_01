@@ -6,7 +6,7 @@
 /*   By: mriaud <mriaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:24:41 by mriaud            #+#    #+#             */
-/*   Updated: 2022/08/01 16:20:37 by mriaud           ###   ########.fr       */
+/*   Updated: 2022/08/01 16:21:04 by mriaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,9 @@ Zombie::~Zombie(void) {
 
 void Zombie::announce(void) {
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ...\n";
+}
+
+void Zombie::setName(std::string name)
+{
+	this->_name = name;
 }

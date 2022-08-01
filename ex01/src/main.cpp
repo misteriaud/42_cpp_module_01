@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mriaud <mriaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 12:24:41 by mriaud            #+#    #+#             */
-/*   Updated: 2022/07/20 11:57:18 by mriaud           ###   ########.fr       */
+/*   Created: 2022/07/19 12:29:14 by mriaud            #+#    #+#             */
+/*   Updated: 2022/08/01 16:22:13 by mriaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include "colors.h"
 #include <iostream>
 
-Zombie::Zombie(void)
-{
-}
+#define ZOMBIE_NUMBER 10
 
-Zombie::Zombie(std::string name)
+int	main(void)
 {
-	this->_name = name;
-}
+	std::cout << BOLDWHITE << "Appel de zombieHorde()\n" << RESET;
+	Zombie *bunchOfZombie = zombieHorde(ZOMBIE_NUMBER, "Social Zombie");
+	for (size_t i = 0; i < ZOMBIE_NUMBER; i++)
+		bunchOfZombie[i].announce();
 
-Zombie::~Zombie(void)
-{
-	std::cout << this->_name << " died in a memory cleaning accident :'(\n";
-}
-
-void Zombie::announce(void)
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ...\n";
-}
-
-void Zombie::setName(std::string name)
-{
-	this->_name = name;
+	delete[] bunchOfZombie;
 }

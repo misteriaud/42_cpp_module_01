@@ -1,8 +1,8 @@
 NAME = ex01
-SRCS = main.cpp Zombie.cpp zombieHorde.cpp
+SRCS = $(addprefix src/, main.cpp Zombie.cpp zombieHorde.cpp)
 OBJS = ${SRCS:.cpp=.o}
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-HDRS = .
+HDRS = inc
 CC = c++
 
 all: ${NAME} $(HDRS) Makefile
